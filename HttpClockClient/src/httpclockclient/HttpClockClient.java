@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package httpclockclient;
 
 import java.io.BufferedReader;
@@ -67,7 +63,7 @@ public class HttpClockClient {
       wr.close();
 
       int responseCode = co.getResponseCode();
-      System.out.println("\nSending 'POST' request to URL : " + url);
+      System.out.println("Sending 'POST' request to URL : " + url);
       System.out.println("Post parameters : " + urlParameters);
       System.out.println("Response Code : " + responseCode);
 
