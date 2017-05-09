@@ -71,7 +71,7 @@ public class HttpClockClient {
       System.out.println("Post parameters : " + urlParameters);
       System.out.println("Response Code : " + responseCode);
 
-      BufferedReader in = new BufferedReader( new InputStreamReader(co.getInputStream()));
+      BufferedReader in = new BufferedReader(new InputStreamReader(co.getInputStream()));
       String inputLine;
       StringBuffer response = new StringBuffer();
 
@@ -80,7 +80,6 @@ public class HttpClockClient {
       }
       in.close();
 
-      
       System.out.println(response.toString());
 
    }
@@ -92,14 +91,27 @@ public class HttpClockClient {
 
       HttpClockClient hc = new HttpClockClient();
 
-      System.out.println("Sending get request html");
-      hc.sendGet(acceptHTML);
+      try {
+         System.out.println("Sending get request html");
+         hc.sendGet(acceptHTML);
 
-      System.out.println("Sending get request json");
-      hc.sendGet(acceptJson);
+         System.out.println("Sending Http POST request");
+         hc.sendPost(acceptHTML);
 
-      System.out.println("Sending get request XML");
-      hc.sendGet(acceptXML);
+         System.out.println("Sending get request json");
+         hc.sendGet(acceptJson);
+
+         System.out.println("Sending Http POST request");
+         hc.sendPost(acceptJson);
+
+         System.out.println("Sending get request XML");
+         hc.sendGet(acceptXML);
+
+         System.out.println("Sending Http POST request");
+         hc.sendPost(acceptXML);
+      } catch (Exception e) {
+         System.err.println("Loupe!");
+      }
 
    }
 
